@@ -22,6 +22,8 @@ public class HallLocation extends JPanel
     {
 
 
+        g.drawImage(new ImageIcon("res/mom.png").getImage(),350,150,30,60,null);
+        g.drawImage(new ImageIcon("res/kid.png").getImage(),380,180,15,30,null);
 
         g.drawRect(300,130,300,600);
         g.drawRect(425,30,50,100);
