@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class Player {
 
-    int x = 400;
-    int y = 400;
+    int x = 327;
+    int y = 601;
     int width = 30;
     int height = 80;
     int xOld;

@@ -18,7 +18,7 @@ public class StreetHallLocation extends JPanel {
         this.controlLocation = controlLocation;
         this.player = player;
         this.mainFrame = mainFrame;
-        moveZone = new Rectangle(180, 160, 540, 510);
+        moveZone = new Rectangle(180, 155, 540, 590);
         doorDown = new Rectangle(445, 747, 10, 50);
     }
 
@@ -29,7 +29,7 @@ public class StreetHallLocation extends JPanel {
 
         player.drawPlayer(g);
 
-        player.playerRect = new Rectangle(player.x, player.y, player.width, player.height);
+        player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
 
         if (player.playerRect.intersects(doorDown)) {
             player.currLocale = 3;

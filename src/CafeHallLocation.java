@@ -18,7 +18,7 @@ public class CafeHallLocation extends JPanel {
         this.controlLocation = controlLocation;
         this.player = player;
         this.mainFrame = mainFrame;
-        moveZone = new Rectangle(230, 210, 440, 410);
+        moveZone = new Rectangle(230, 205, 440, 490);
         doorLeft = new Rectangle(200, 445, 3, 10);
     }
 
@@ -29,7 +29,7 @@ public class CafeHallLocation extends JPanel {
 
         player.drawPlayer(g);
 
-        player.playerRect = new Rectangle(player.x, player.y, player.width, player.height);
+        player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
 
         if (player.playerRect.intersects(doorLeft)) {
             player.currLocale = 3;

@@ -20,13 +20,13 @@ public class RegHallLocation extends JPanel {
         this.controlLocation = controlLocation;
         this.player = player;
         this.mainFrame = mainFrame;
-        moveZone = new Rectangle(180, 310, 540, 210);
+        moveZone = new Rectangle(180, 305, 540, 290);
 
         doorDownOne = new Rectangle(320, 597, 10, 50);
         doorDownTwo = new Rectangle(570, 597, 10, 50);
 
-        doorUpOne = new Rectangle(320, 200, 10, 33);
-        doorUpTwo = new Rectangle(570, 200, 10, 33);
+        doorUpOne = new Rectangle(320, 300, 10, 3);
+        doorUpTwo = new Rectangle(570, 300, 10, 3);
     }
 
 
@@ -41,7 +41,7 @@ public class RegHallLocation extends JPanel {
 
         player.drawPlayer(g);
 
-        player.playerRect = new Rectangle(player.x, player.y, player.width, player.height);
+        player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
 
         if (player.playerRect.intersects(doorDownOne)) {
             player.currLocale = 0;

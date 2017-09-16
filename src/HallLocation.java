@@ -18,23 +18,32 @@ public class HallLocation extends JPanel {
         this.kid=kid;
         this.mom=mom;
         this.controlLocation = controlLocation;
-        doorUp = new Rectangle(445, 30, 10, 33);
-        moveZone = new Rectangle(300+30, 130+5, 240, 590);
+        doorUp = new Rectangle(445, 130, 10, 3);
+        moveZone = new Rectangle(330, 135, 240, 590);
         this.player = player;
         this.mainFrame = mainFrame;
     }
 
     public void paint(Graphics g) {
-
-        g.drawRect(300, 130, 300, 600);
-        g.drawRect(425, 30, 50, 100);
-        mom.drawMom(g);
-        kid.drawKid(g);
-        player.drawPlayer(g);
-
-
-
+        g.drawImage(new ImageIcon("res/hall.png").getImage(), 200, 30, 500, 800, null);
+      if(player.y<130) {
+          player.drawPlayer(g);
+          mom.drawMom(g);
+          kid.drawKid(g);
+      }
+      else {
+          mom.drawMom(g);
+          kid.drawKid(g);
+          player.drawPlayer(g);
+      }
         player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
+
+        if(Math.sqrt(Math.pow((446-player.playerRect.getX()+5),2)+Math.pow((437-player.playerRect.getY()+2),2))<60)
+        {
+            player.x = player.xOld;
+            player.y = player.yOld;
+        }
+
         if (!player.playerRect.intersects(moveZone)) {
             player.x = player.xOld;
             player.y = player.yOld;
@@ -51,5 +60,6 @@ public class HallLocation extends JPanel {
         player.update();
         mainFrame.frame.repaint();
         controlLocation.checkLocation();
+
     }
 }

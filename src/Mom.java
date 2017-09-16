@@ -10,7 +10,7 @@ public class Mom {
     int y = 150;
     int width = 30;
     int height = 60;
-    Rectangle rectMom = new Rectangle(350,180,30,30);
+    Rectangle rectMom = new Rectangle(360,200,10,10);
     ImageIcon imageMom = new ImageIcon("res/mom.png");
 
     public Mom(){}

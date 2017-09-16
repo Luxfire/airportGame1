@@ -18,8 +18,8 @@ public class PersonalsHallLocation extends JPanel {
         this.controlLocation = controlLocation;
         this.player = player;
         this.mainFrame = mainFrame;
-        moveZone = new Rectangle(330, 385, 240, 60);
-        doorUp = new Rectangle(445, 275, 10, 33);
+        moveZone = new Rectangle(330, 380, 240, 140);
+        doorUp = new Rectangle(445, 375, 10, 3);
     }
 
 
@@ -29,7 +29,7 @@ public class PersonalsHallLocation extends JPanel {
 
         player.drawPlayer(g);
 
-        player.playerRect = new Rectangle(player.x, player.y, player.width, player.height);
+        player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
 
         if (player.playerRect.intersects(doorUp)) {
             player.currLocale = 1;

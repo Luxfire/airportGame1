@@ -34,7 +34,9 @@ public class KeyListen extends KeyAdapter {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_0) {
-            System.out.print(player.playerRect);
+            System.out.print(player.x);
+            System.out.print(player.y);
+
         }
     }
 

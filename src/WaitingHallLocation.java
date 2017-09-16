@@ -17,12 +17,12 @@ public class WaitingHallLocation extends JPanel {
         this.controlLocation = controlLocation;
         this.player = player;
         this.mainFrame = mainFrame;
-        moveZone = new Rectangle(180, 210, 540, 410);
+        moveZone = new Rectangle(180, 205, 540, 490);
 
         doorDownOne = new Rectangle(320, 697, 10, 50);
         doorDownTwo = new Rectangle(570, 697, 10, 50);
         doorRight = new Rectangle(745, 445, 10, 10);
-        doorUp = new Rectangle(445, 100, 10, 33);
+        doorUp = new Rectangle(445, 200, 10, 3);
     }
 
 
@@ -37,7 +37,7 @@ public class WaitingHallLocation extends JPanel {
 
         player.drawPlayer(g);
 
-        player.playerRect = new Rectangle(player.x, player.y, player.width, player.height);
+        player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
 
         if (player.playerRect.intersects(doorDownOne)) {
             player.currLocale = 1;
