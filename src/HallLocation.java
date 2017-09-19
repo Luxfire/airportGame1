@@ -4,24 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HallLocation extends JPanel {
-    Player player;
-    MainFrame mainFrame;
-    Rectangle moveZone;
-    Rectangle doorUp;
-    ControlLocation controlLocation;
-    Mom mom;
-    Kid kid;
-    List<Rectangle> hallTexturs = new ArrayList<>();
+public class HallLocation extends Location {
 
-    HallLocation(Kid kid,Mom mom,Player player, MainFrame mainFrame, ControlLocation controlLocation) {
-        this.kid=kid;
-        this.mom=mom;
-        this.controlLocation = controlLocation;
-        doorUp = new Rectangle(445, 130, 10, 3);
+    HallLocation(Controller controller) {
+        this.kid=controller.kid;
+        this.mom=controller.mom;
+        doorUpOne = new Rectangle(445, 130, 10, 3);
         moveZone = new Rectangle(330, 135, 240, 590);
-        this.player = player;
-        this.mainFrame = mainFrame;
+        player = controller.player;
     }
 
     public void paint(Graphics g) {
@@ -49,7 +39,7 @@ public class HallLocation extends JPanel {
             player.y = player.yOld;
         }
 
-        if (player.playerRect.intersects(doorUp)) {
+        if (player.playerRect.intersects(doorUpOne)) {
             player.currLocale = 1;
             player.x = 320;
             player.y = 515;
@@ -57,9 +47,5 @@ public class HallLocation extends JPanel {
         if (player.playerRect.intersects(mom.rectMom)) {
             player.x = player.xOld;
             player.y = player.yOld;}
-        player.update();
-        mainFrame.frame.repaint();
-        controlLocation.checkLocation();
-
     }
 }

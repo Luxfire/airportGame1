@@ -5,8 +5,8 @@ import java.awt.event.KeyEvent;
  * Created by user on 06.09.2017.
  */
 public class KeyListen extends KeyAdapter {
-    Player player;
 
+    Player player;
     KeyListen(Player player) {
         this.player = player;
     }

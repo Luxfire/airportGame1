@@ -5,21 +5,11 @@ import java.util.ArrayList;
 /**
  * Created by user on 10.09.2017.
  */
-public class RegHallLocation extends JPanel {
-    Player player;
-    MainFrame mainFrame;
-    Rectangle moveZone;
-    Rectangle doorDownOne;
-    Rectangle doorDownTwo;
-    Rectangle doorUpOne;
-    Rectangle doorUpTwo;
-    ControlLocation controlLocation;
-    java.util.List<Rectangle> hallTexturs = new ArrayList<>();
+public class RegHallLocation extends Location {
 
-    RegHallLocation(Player player, MainFrame mainFrame, ControlLocation controlLocation) {
-        this.controlLocation = controlLocation;
-        this.player = player;
-        this.mainFrame = mainFrame;
+    RegHallLocation(Controller controller) {
+       player = controller.player;
+
         moveZone = new Rectangle(180, 305, 540, 290);
 
         doorDownOne = new Rectangle(320, 597, 10, 50);
@@ -70,9 +60,5 @@ public class RegHallLocation extends JPanel {
             player.y = player.yOld;
         }
 
-        player.update();
-        mainFrame.frame.repaint();
-
-        controlLocation.checkLocation();
     }
 }

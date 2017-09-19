@@ -6,20 +6,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class PersonalsHallLocation extends JPanel {
-    Player player;
-    MainFrame mainFrame;
-    Rectangle moveZone;
-    Rectangle doorUp;
-    ControlLocation controlLocation;
-    java.util.List<Rectangle> hallTexturs = new ArrayList<>();
+public class PersonalsHallLocation extends Location {
 
-    PersonalsHallLocation(Player player, MainFrame mainFrame, ControlLocation controlLocation) {
-        this.controlLocation = controlLocation;
-        this.player = player;
-        this.mainFrame = mainFrame;
+    PersonalsHallLocation(Controller controller) {
+
+       player = controller.player;
+
         moveZone = new Rectangle(330, 380, 240, 140);
-        doorUp = new Rectangle(445, 375, 10, 3);
+        doorUpOne = new Rectangle(445, 375, 10, 3);
     }
 
 
@@ -31,7 +25,7 @@ public class PersonalsHallLocation extends JPanel {
 
         player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
 
-        if (player.playerRect.intersects(doorUp)) {
+        if (player.playerRect.intersects(doorUpOne)) {
             player.currLocale = 1;
             player.x = 570;
             player.y = 515;
@@ -40,9 +34,5 @@ public class PersonalsHallLocation extends JPanel {
             player.x = player.xOld;
             player.y = player.yOld;
         }
-
-        player.update();
-        mainFrame.frame.repaint();
-        controlLocation.checkLocation();
     }
 }

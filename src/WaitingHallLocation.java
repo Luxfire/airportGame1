@@ -2,27 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 
-public class WaitingHallLocation extends JPanel {
-    Player player;
-    MainFrame mainFrame;
-    Rectangle moveZone;
-    Rectangle doorDownOne;
-    Rectangle doorDownTwo;
-    Rectangle doorRight;
-    Rectangle doorUp;
-    ControlLocation controlLocation;
-    java.util.List<Rectangle> hallTexturs = new ArrayList<>();
+public class WaitingHallLocation extends Location {
 
-    WaitingHallLocation(Player player, MainFrame mainFrame, ControlLocation controlLocation) {
-        this.controlLocation = controlLocation;
-        this.player = player;
-        this.mainFrame = mainFrame;
+    WaitingHallLocation(Controller controller) {
+
+        this.player = controller.player;
+
         moveZone = new Rectangle(180, 205, 540, 490);
 
         doorDownOne = new Rectangle(320, 697, 10, 50);
         doorDownTwo = new Rectangle(570, 697, 10, 50);
         doorRight = new Rectangle(745, 445, 10, 10);
-        doorUp = new Rectangle(445, 200, 10, 3);
+        doorUpOne = new Rectangle(445, 200, 10, 3);
     }
 
 
@@ -54,7 +45,7 @@ public class WaitingHallLocation extends JPanel {
             player.x = 205;
             player.y = 400;
         }
-        if (player.playerRect.intersects(doorUp)) {
+        if (player.playerRect.intersects(doorUpOne)) {
             player.currLocale = 5;
             player.x = 425;
             player.y = 645;
@@ -64,8 +55,5 @@ public class WaitingHallLocation extends JPanel {
             player.y = player.yOld;
         }
 
-        player.update();
-        mainFrame.frame.repaint();
-        controlLocation.checkLocation();
     }
 }

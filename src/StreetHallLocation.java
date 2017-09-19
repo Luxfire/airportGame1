@@ -6,20 +6,14 @@ import java.util.ArrayList;
 /**
  * Created by user on 10.09.2017.
  */
-public class StreetHallLocation extends JPanel {
-    Player player;
-    MainFrame mainFrame;
-    Rectangle moveZone;
-    Rectangle doorDown;
-    ControlLocation controlLocation;
-    java.util.List<Rectangle> hallTexturs = new ArrayList<>();
+public class StreetHallLocation extends Location {
 
-    StreetHallLocation(Player player, MainFrame mainFrame, ControlLocation controlLocation) {
-        this.controlLocation = controlLocation;
-        this.player = player;
-        this.mainFrame = mainFrame;
+    StreetHallLocation(Controller controller) {
+
+        player = controller.player;
+
         moveZone = new Rectangle(180, 155, 540, 590);
-        doorDown = new Rectangle(445, 747, 10, 50);
+        doorDownOne = new Rectangle(445, 747, 10, 50);
     }
 
 
@@ -31,7 +25,7 @@ public class StreetHallLocation extends JPanel {
 
         player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
 
-        if (player.playerRect.intersects(doorDown)) {
+        if (player.playerRect.intersects(doorDownOne)) {
             player.currLocale = 3;
             player.x = 445;
             player.y = 160;
@@ -40,9 +34,5 @@ public class StreetHallLocation extends JPanel {
             player.x = player.xOld;
             player.y = player.yOld;
         }
-
-        player.update();
-        mainFrame.frame.repaint();
-        controlLocation.checkLocation();
     }
 }

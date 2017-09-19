@@ -6,18 +6,12 @@ import java.util.ArrayList;
 /**
  * Created by user on 10.09.2017.
  */
-public class CafeHallLocation extends JPanel {
-    Player player;
-    MainFrame mainFrame;
-    Rectangle moveZone;
-    Rectangle doorLeft;
-    ControlLocation controlLocation;
-    java.util.List<Rectangle> hallTexturs = new ArrayList<>();
+public class CafeHallLocation extends Location {
 
-    CafeHallLocation(Player player, MainFrame mainFrame, ControlLocation controlLocation) {
-        this.controlLocation = controlLocation;
-        this.player = player;
-        this.mainFrame = mainFrame;
+    CafeHallLocation(Controller controller) {
+
+        player = controller.player;
+
         moveZone = new Rectangle(230, 205, 440, 490);
         doorLeft = new Rectangle(200, 445, 3, 10);
     }
@@ -41,8 +35,5 @@ public class CafeHallLocation extends JPanel {
             player.y = player.yOld;
         }
 
-        player.update();
-        mainFrame.frame.repaint();
-        controlLocation.checkLocation();
     }
 }

@@ -20,7 +20,6 @@ public class Player {
     int animationSpeed = 0;
 
     int currLocale = 0;
-    int oldLocale = 0;
     boolean moved = false;
 
     boolean up = false;
@@ -35,7 +34,7 @@ public class Player {
     Rectangle playerRect;
 
     public Player() {
-        playerRect = new Rectangle(x, y+75, width, height-75);
+
         spriteDown.add("res/down1.png");
         spriteDown.add("res/down2.png");
         spriteDown.add("res/down3.png");
