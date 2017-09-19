@@ -1,3 +1,4 @@
+package model;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,28 +11,26 @@ import java.util.List;
  */
 public class Player {
 
-    int x = 327;
-    int y = 601;
-    int width = 30;
-    int height = 80;
-    int xOld;
-    int yOld;
-    int moveSpeed = 0;
-    int animationSpeed = 0;
-
-    int currLocale = 0;
-    boolean moved = false;
-
-    boolean up = false;
-    boolean down = false;
-    boolean left = false;
-    boolean right = false;
-    List<String> spriteDown = new ArrayList<String>();
-    List<String> spriteUp = new ArrayList<String>();
-    List<String> spriteLeft = new ArrayList<String>();
-    List<String> spriteRight = new ArrayList<String>();
-    int spriteCounter = 0;
-    Rectangle playerRect;
+    public int x = 327;
+    public int y = 601;
+    public int width = 30;
+    public int height = 80;
+    public int xOld;
+    public int yOld;
+    public int moveSpeed = 0;
+    public int animationSpeed = 0;
+    public int currLocale = 0;
+    public boolean moved = false;
+    public boolean up = false;
+    public boolean down = false;
+    public boolean left = false;
+    public boolean right = false;
+    public List<String> spriteDown = new ArrayList<String>();
+    public List<String> spriteUp = new ArrayList<String>();
+    public List<String> spriteLeft = new ArrayList<String>();
+    public List<String> spriteRight = new ArrayList<String>();
+    public int spriteCounter = 0;
+    public Rectangle playerRect;
 
     public Player() {
 

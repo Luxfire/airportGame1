@@ -1,12 +1,14 @@
+package view.locations;
+
+import controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class HallLocation extends Location {
 
-    HallLocation(Controller controller) {
+   public HallLocation(Controller controller) {
         this.kid=controller.kid;
         this.mom=controller.mom;
         doorUpOne = new Rectangle(445, 130, 10, 3);

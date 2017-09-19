@@ -1,10 +1,12 @@
-import javax.swing.*;
+package view.locations;
+
+import controller.Controller;
+
 import java.awt.*;
-import java.util.*;
 
 public class WaitingHallLocation extends Location {
 
-    WaitingHallLocation(Controller controller) {
+   public WaitingHallLocation(Controller controller) {
 
         this.player = controller.player;
 

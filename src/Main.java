@@ -1,6 +1,5 @@
-import javax.swing.*;
-import java.util.List;
-import java.util.ArrayList;
+import controller.Controller;
+import view.MainFrame;
 
 public class Main {
 

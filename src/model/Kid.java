@@ -1,3 +1,5 @@
+package model;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -6,11 +8,11 @@ import java.awt.*;
  */
 public class Kid {
 
-    int x = 380;
-    int y = 180;
-    int width = 15;
-    int height = 30;
-    ImageIcon imageMom = new ImageIcon("res/kid.png");
+    public int x = 380;
+    public int y = 180;
+    public int width = 15;
+    public int height = 30;
+    public ImageIcon imageMom = new ImageIcon("res/kid.png");
 
     public Kid(){}
 

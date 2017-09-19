@@ -1,14 +1,15 @@
+package view.locations;
 
-import javax.swing.*;
+import controller.Controller;
+
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  * Created by user on 10.09.2017.
  */
 public class CafeHallLocation extends Location {
 
-    CafeHallLocation(Controller controller) {
+    public CafeHallLocation(Controller controller) {
 
         player = controller.player;
 

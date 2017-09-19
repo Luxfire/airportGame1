@@ -1,13 +1,15 @@
-import javax.swing.*;
+package view.locations;
+
+import controller.Controller;
+
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  * Created by user on 10.09.2017.
  */
 public class RegHallLocation extends Location {
 
-    RegHallLocation(Controller controller) {
+   public RegHallLocation(Controller controller) {
        player = controller.player;
 
         moveZone = new Rectangle(180, 305, 540, 290);

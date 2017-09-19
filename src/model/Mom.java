@@ -1,3 +1,5 @@
+package model;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -6,12 +8,12 @@ import java.awt.*;
  */
 public class Mom {
 
-    int x = 350;
-    int y = 150;
-    int width = 30;
-    int height = 60;
-    Rectangle rectMom = new Rectangle(360,200,10,10);
-    ImageIcon imageMom = new ImageIcon("res/mom.png");
+    public int x = 350;
+    public int y = 150;
+    public int width = 30;
+    public int height = 60;
+    public Rectangle rectMom = new Rectangle(360,200,10,10);
+    public ImageIcon imageMom = new ImageIcon("res/mom.png");
 
     public Mom(){}
 

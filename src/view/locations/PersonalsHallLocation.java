@@ -1,14 +1,14 @@
-/**
+package view.locations; /**
  * Created by user on 10.09.2017.
  */
 
-import javax.swing.*;
+import controller.Controller;
+
 import java.awt.*;
-import java.util.ArrayList;
 
 public class PersonalsHallLocation extends Location {
 
-    PersonalsHallLocation(Controller controller) {
+   public PersonalsHallLocation(Controller controller) {
 
        player = controller.player;
 

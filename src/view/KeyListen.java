@@ -1,3 +1,7 @@
+package view;
+
+import model.Player;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -6,7 +10,7 @@ import java.awt.event.KeyEvent;
  */
 public class KeyListen extends KeyAdapter {
 
-    Player player;
+    public Player player;
     KeyListen(Player player) {
         this.player = player;
     }

@@ -1,25 +1,17 @@
+package view;
+
+import controller.Controller;
+import view.locations.*;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
 
-public class MainFrame {
-    JFrame frame;
-
-    public MainFrame(Controller controller) {
-
-        frame = new JFrame("Аэропорт");
-        frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.addKeyListener(new KeyListen(controller.player));
-        frame.add(new DrawLocation(controller,this));
-        frame.setSize(900, 900);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-}
-
-class DrawLocation extends JPanel
+/**
+ * Created by user on 19.09.2017.
+ */
+public class DrawLocation extends JPanel
 {   Controller controller;
     MainFrame mainFrame;
     List<Location> locationList;
@@ -40,7 +32,7 @@ class DrawLocation extends JPanel
     {
         locationList.get(controller.player.currLocale).paint(g);
         controller.player.update();
-       mainFrame.frame.repaint();
+        mainFrame.frame.repaint();
     }
 
 }
