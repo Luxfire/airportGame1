@@ -2,6 +2,7 @@ package view.locations;
 
 import controller.Controller;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -13,14 +14,17 @@ public class StreetHallLocation extends Location {
 
         player = controller.player;
 
-        moveZone = new Rectangle(180, 155, 540, 590);
+        moveZone = new Rectangle(180, 280, 540, 465);
         doorDownOne = new Rectangle(445, 747, 10, 50);
     }
 
 
     public void paint(Graphics g) {
-        g.drawRect(150, 150, 600, 600);
-        g.drawRect(425, 750, 50, 100);
+     /*   g.drawRect(150, 150, 600, 600);
+        g.drawRect(425, 750, 50, 100);*/
+
+        g.drawImage(new ImageIcon("res/street.png").getImage(), 50, 50, 800, 800, null);
+
 
         player.drawPlayer(g);
 
