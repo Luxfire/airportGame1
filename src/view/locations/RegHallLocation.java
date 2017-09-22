@@ -2,6 +2,7 @@ package view.locations;
 
 import controller.Controller;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -23,13 +24,7 @@ public class RegHallLocation extends Location {
 
 
     public void paint(Graphics g) {
-        g.drawRect(150, 300, 600, 300);
-
-        g.drawRect(300, 600, 50, 100);
-        g.drawRect(550, 600, 50, 100);
-
-        g.drawRect(300, 200, 50, 100);
-        g.drawRect(550, 200, 50, 100);
+        g.drawImage(new ImageIcon("res/receptionHall.png").getImage(), 50, 200, 800, 500, null);
 
         player.drawPlayer(g);
 

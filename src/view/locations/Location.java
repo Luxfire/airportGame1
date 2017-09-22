@@ -18,10 +18,6 @@ public class Location {
     public Rectangle doorDownTwo;
     public Rectangle doorLeft;
     public Rectangle doorRight;
-    public Mom mom;
-    public Kid kid;
-
-    public Location(){}
     public void paint(Graphics g)
     {}
 }

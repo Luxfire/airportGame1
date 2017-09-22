@@ -2,34 +2,29 @@ package view.locations;
 
 import controller.Controller;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class WaitingHallLocation extends Location {
-
+Controller controller;
    public WaitingHallLocation(Controller controller) {
-
+        this.controller=controller;
         this.player = controller.player;
 
         moveZone = new Rectangle(180, 205, 540, 490);
 
         doorDownOne = new Rectangle(320, 697, 10, 50);
         doorDownTwo = new Rectangle(570, 697, 10, 50);
-        doorRight = new Rectangle(745, 445, 10, 10);
+        doorRight = new Rectangle(745, 425, 10, 50);
         doorUpOne = new Rectangle(445, 200, 10, 3);
     }
 
 
     public void paint(Graphics g) {
-        g.drawRect(150, 200, 600, 500);
-
-        g.drawRect(300, 700, 50, 100);
-        g.drawRect(550, 700, 50, 100);
-
-        g.drawRect(750, 425, 100, 50);
-        g.drawRect(425, 100, 50, 100);
+        g.drawImage(new ImageIcon("res/waitingHall.png").getImage(), 50, 100, 800, 700, null);
 
         player.drawPlayer(g);
-
+        if (controller.momInWaitingHall) controller.mom.drawMom(g);
         player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
 
         if (player.playerRect.intersects(doorDownOne)) {

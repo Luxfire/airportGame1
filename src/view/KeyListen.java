@@ -1,6 +1,7 @@
 package view;
 
 import model.Player;
+import controller.Controller;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -11,8 +12,11 @@ import java.awt.event.KeyEvent;
 public class KeyListen extends KeyAdapter {
 
     public Player player;
-    KeyListen(Player player) {
-        this.player = player;
+    public Controller controller;
+
+    KeyListen(Controller controller) {
+        this.controller = controller;
+        player = controller.player;
     }
 
     @Override
@@ -42,6 +46,7 @@ public class KeyListen extends KeyAdapter {
             System.out.print(player.y);
 
         }
+
     }
 
     @Override
@@ -61,6 +66,26 @@ public class KeyListen extends KeyAdapter {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             player.down = false;
             player.moved = false;
+        }
+
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            if (controller.dialogWithMomInHoll)
+            {
+                if (player.dialogWithMomCounter <= player.dialogWithMom.size() - 1) player.dialogWithMomCounter++;
+                if (player.dialogWithMomCounter == player.dialogWithMom.size() - 1) {
+                    controller.dialogWithMomInHoll = false;
+                    controller.momInHoll = false;
+                    controller.momInWaitingHall = true;
+                    controller.mom.changeYForWait();
+                }
+            }
+        }
+
+
+        if (e.getKeyCode() == KeyEvent.VK_E)
+        {
+            if (controller.activeWithMom()&&controller.kidInPersonalHall) controller.dialogWithMomInHoll=true;
         }
     }
 }

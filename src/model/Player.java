@@ -29,8 +29,11 @@ public class Player {
     public List<String> spriteUp = new ArrayList<String>();
     public List<String> spriteLeft = new ArrayList<String>();
     public List<String> spriteRight = new ArrayList<String>();
+    public List<String> dialogWithMom = new ArrayList<String>();
+    public int dialogWithMomCounter=0;
     public int spriteCounter = 0;
     public Rectangle playerRect;
+    public Rectangle activeZone;
 
     public Player() {
 
@@ -54,19 +57,21 @@ public class Player {
         spriteRight.add("res/right3.png");
         spriteRight.add("res/right4.png");
 
+        dialogWithMom.add("res/right1.png");
+        dialogWithMom.add("res/right2.png");
+        dialogWithMom.add("res/right3.png");
+        dialogWithMom.add("res/right4.png");
+
         xOld = x;
         yOld = y;
 
     }
 
-    ;
-
     public void update() {
-        playerRect = new Rectangle(x, y+75, width, height-75);
         xOld = x;
         yOld = y;
 
-
+        getZones();
         if (moved) {
             if (moveSpeed == 1) {
                 if (down) {
@@ -108,6 +113,23 @@ public class Player {
         if (!up && !down && !left && !right)
             g.drawImage(new ImageIcon(spriteDown.get(0)).getImage(), x, y, width, height, null);
 
+    }
+
+    public void setOldXY()
+    {
+        x=xOld;
+        y=yOld;
+    }
+
+    public void drawDialogWithMom(Graphics g)
+    {
+        g.drawImage(new ImageIcon(dialogWithMom.get(dialogWithMomCounter)).getImage(), 0, 800, 800,100 , null);
+    }
+
+    public void getZones()
+    {
+        playerRect = new Rectangle(x, y+75, width, height-75);
+        activeZone = new Rectangle(x-30,y+40,50,50);
     }
 }
 

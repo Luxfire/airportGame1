@@ -4,12 +4,13 @@ package view.locations; /**
 
 import controller.Controller;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class PersonalsHallLocation extends Location {
-
+  Controller controller;
    public PersonalsHallLocation(Controller controller) {
-
+        this.controller=controller;
        player = controller.player;
 
         moveZone = new Rectangle(330, 380, 240, 140);
@@ -18,9 +19,10 @@ public class PersonalsHallLocation extends Location {
 
 
     public void paint(Graphics g) {
-        g.drawRect(300, 375, 300, 150);
-        g.drawRect(425, 275, 50, 100);
-
+        /*g.drawRect(300, 375, 300, 150);
+        g.drawRect(425, 275, 50, 100);*/
+        g.drawImage(new ImageIcon("res/personalRoom.png").getImage(), 200, 275, 500, 350, null);
+        if(controller.kidInPersonalHall) controller.kid.drawKid(g);
         player.drawPlayer(g);
 
         player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);

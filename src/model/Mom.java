@@ -22,6 +22,9 @@ public class Mom {
         g.drawImage(imageMom.getImage(), x, y, width, height, null);
     }
 
-
+    public void changeYForWait()
+    {
+        y=400;
+    }
 
 }
