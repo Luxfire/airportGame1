@@ -19,8 +19,7 @@ public class PersonalsHallLocation extends Location {
 
 
     public void paint(Graphics g) {
-        /*g.drawRect(300, 375, 300, 150);
-        g.drawRect(425, 275, 50, 100);*/
+
         g.drawImage(new ImageIcon("res/personalRoom.png").getImage(), 200, 275, 500, 350, null);
         if(controller.kidInPersonalHall) controller.kid.drawKid(g);
         player.drawPlayer(g);

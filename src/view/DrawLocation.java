@@ -19,7 +19,7 @@ public class DrawLocation extends JPanel
     {
         this.controller=controller;
         this.mainFrame = mainFrame;
-        locationList = new ArrayList<>();
+        locationList = new ArrayList();
         locationList.add(new HallLocation(controller));
         locationList.add(new RegHallLocation(controller));
         locationList.add(new PersonalsHallLocation(controller));

@@ -5,11 +5,12 @@ import controller.Controller;
 import javax.swing.*;
 import java.awt.*;
 
+
 /**
  * Created by user on 10.09.2017.
  */
 public class StreetHallLocation extends Location {
-
+  Rectangle stairs =new Rectangle(400,50,60,150);
     public StreetHallLocation(Controller controller) {
 
         player = controller.player;
@@ -20,8 +21,6 @@ public class StreetHallLocation extends Location {
 
 
     public void paint(Graphics g) {
-     /*   g.drawRect(150, 150, 600, 600);
-        g.drawRect(425, 750, 50, 100);*/
 
         g.drawImage(new ImageIcon("res/street.png").getImage(), 50, 50, 800, 800, null);
 
@@ -39,5 +38,6 @@ public class StreetHallLocation extends Location {
             player.x = player.xOld;
             player.y = player.yOld;
         }
+        if (player.playerRect.intersects(stairs)) player.setOldXY();
     }
 }

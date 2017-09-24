@@ -43,4 +43,8 @@ public class Controller {
     {
         return player.activeZone.intersects(mom.rectMom);
     }
+    public boolean activeWithKid()
+    {
+        return player.activeZone.intersects(kid.rectKid);
+    }
 }

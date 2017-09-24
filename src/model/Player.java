@@ -25,11 +25,11 @@ public class Player {
     public boolean down = false;
     public boolean left = false;
     public boolean right = false;
-    public List<String> spriteDown = new ArrayList<String>();
-    public List<String> spriteUp = new ArrayList<String>();
-    public List<String> spriteLeft = new ArrayList<String>();
-    public List<String> spriteRight = new ArrayList<String>();
-    public List<String> dialogWithMom = new ArrayList<String>();
+    public List<String> spriteDown = new ArrayList();
+    public List<String> spriteUp = new ArrayList();
+    public List<String> spriteLeft = new ArrayList();
+    public List<String> spriteRight = new ArrayList();
+    public List<String> dialogWithMom = new ArrayList();
     public int dialogWithMomCounter=0;
     public int spriteCounter = 0;
     public Rectangle playerRect;
@@ -129,7 +129,7 @@ public class Player {
     public void getZones()
     {
         playerRect = new Rectangle(x, y+75, width, height-75);
-        activeZone = new Rectangle(x-30,y+40,50,50);
+        activeZone = new Rectangle(x-30,y+50,90,60);
     }
 }
 

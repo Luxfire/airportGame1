@@ -13,14 +13,15 @@ public class Kid {
     public int width = 15;
     public int height = 30;
     public ImageIcon imageMom = new ImageIcon("res/kid.png");
+    public Rectangle rectKid;
 
-    public Kid(){}
-
-    public void drawKid(Graphics g)
-    {
-        g.drawImage(imageMom.getImage(), x, y, width, height, null);
+    public Kid() {
     }
 
+    public void drawKid(Graphics g) {
+        rectKid = new Rectangle(x,y,width,height);
+        g.drawImage(imageMom.getImage(), x, y, width, height, null);
+    }
 
 
 }

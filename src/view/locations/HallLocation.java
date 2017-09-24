@@ -22,9 +22,16 @@ public class HallLocation extends Location {
 
         g.drawImage(new ImageIcon("res/hall.png").getImage(), 200, 30, 500, 800, null);
 
-        player.drawPlayer(g);
-        if(controller.momInHoll) controller.mom.drawMom(g);
-        if(controller.kidInHoll) controller.kid.drawKid(g);
+
+        if (controller.kidInHoll) controller.kid.drawKid(g);
+        if(controller.mom.y+controller.mom.height<player.y+player.height) {
+            if (controller.momInHoll) controller.mom.drawMom(g);
+            player.drawPlayer(g);
+        }else
+        {
+            player.drawPlayer(g);
+            if (controller.momInHoll) controller.mom.drawMom(g);
+        }
 
         if (controller.dialogWithMomInHoll&&controller.activeWithMom())
         {
@@ -47,15 +54,12 @@ public class HallLocation extends Location {
             player.setOldXY();
         }
 
-        if (player.playerRect.intersects(doorUpOne)&&!controller.dialogWithMomInHoll) {
+        if (player.playerRect.intersects(doorUpOne)) {
             player.currLocale = 1;
             player.x = 320;
             player.y = 515;
             if(controller.kidInHoll) controller.stageKidIsLost();
         }
-
-
-
 
     }
 }

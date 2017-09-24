@@ -25,6 +25,7 @@ Controller controller;
 
         player.drawPlayer(g);
         if (controller.momInWaitingHall) controller.mom.drawMom(g);
+        if(controller.kidInWaitingHall) controller.kid.drawKid(g);
         player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
 
         if (player.playerRect.intersects(doorDownOne)) {

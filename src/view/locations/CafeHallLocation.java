@@ -20,8 +20,7 @@ Controller controller;
 
 
     public void paint(Graphics g) {
-       /* g.drawRect(200, 200, 500, 500);
-        g.drawRect(100, 425, 100, 50);*/
+
         g.drawImage(new ImageIcon("res/bar.png").getImage(), 100, 100, 700, 700, null);
         player.drawPlayer(g);
 
