@@ -18,10 +18,6 @@ public class Kid {
     public Kid() {
     }
 
-    public void drawKid(Graphics g) {
-        rectKid = new Rectangle(x,y,width,height);
-        g.drawImage(imageMom.getImage(), x, y, width, height, null);
-    }
 
 
 }

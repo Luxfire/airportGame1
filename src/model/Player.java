@@ -101,19 +101,6 @@ public class Player {
         }
     }
 
-    public void drawPlayer(Graphics g) {
-        if (down && !left && !right)
-            g.drawImage(new ImageIcon(spriteDown.get(spriteCounter)).getImage(), x, y, width, height, null);
-        if (up && !left && !right)
-            g.drawImage(new ImageIcon(spriteUp.get(spriteCounter)).getImage(), x, y, width, height, null);
-        if (right)
-            g.drawImage(new ImageIcon(spriteRight.get(spriteCounter)).getImage(), x, y, 20, height, null);
-        if (left)
-            g.drawImage(new ImageIcon(spriteLeft.get(spriteCounter)).getImage(), x, y, 20, height, null);
-        if (!up && !down && !left && !right)
-            g.drawImage(new ImageIcon(spriteDown.get(0)).getImage(), x, y, width, height, null);
-
-    }
 
     public void setOldXY()
     {

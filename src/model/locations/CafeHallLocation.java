@@ -1,6 +1,7 @@
-package view.locations;
+package model.locations;
 
 import controller.Controller;
+import controller.Door;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,19 +16,23 @@ Controller controller;
         player = controller.player;
 
         moveZone = new Rectangle(230, 205, 440, 490);
-        doorLeft = new Rectangle(200, 425, 3, 50);
+        doorLeft = new Door(200, 425, 3, 50);
+
+        x=100;
+        y=100;
+        width=700;
+        height=700;
+        mapTexture = new ImageIcon("res/bar.png");
     }
 
 
-    public void paint(Graphics g) {
+    public void update() {
 
-        g.drawImage(new ImageIcon("res/bar.png").getImage(), 100, 100, 700, 700, null);
-        player.drawPlayer(g);
 
-        player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
+        controller.player.getZones();
 
-        if (player.playerRect.intersects(doorLeft)) {
-            player.currLocale = 3;
+        if (player.playerRect.intersects(doorLeft.door)) {
+            controller.location=controller.gameMap.map.get(doorLeft);;
             player.x = 630;
             player.y = 405;
         }

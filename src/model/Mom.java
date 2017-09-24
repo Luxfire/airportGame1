@@ -17,10 +17,6 @@ public class Mom {
 
     public Mom(){}
 
-    public void drawMom(Graphics g)
-    {
-        g.drawImage(imageMom.getImage(), x, y, width, height, null);
-    }
 
     public void changeYForWait()
     {

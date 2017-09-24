@@ -1,12 +1,9 @@
 package view;
 
 import controller.Controller;
-import view.locations.*;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by user on 19.09.2017.
@@ -14,25 +11,86 @@ import java.util.List;
 public class DrawLocation extends JPanel
 {   Controller controller;
     MainFrame mainFrame;
-    List<Location> locationList;
+
     public DrawLocation(Controller controller,MainFrame mainFrame)
     {
         this.controller=controller;
         this.mainFrame = mainFrame;
-        locationList = new ArrayList();
-        locationList.add(new HallLocation(controller));
-        locationList.add(new RegHallLocation(controller));
-        locationList.add(new PersonalsHallLocation(controller));
-        locationList.add(new WaitingHallLocation(controller));
-        locationList.add(new CafeHallLocation(controller));
-        locationList.add(new StreetHallLocation(controller));
+
     }
 
     public void paint(Graphics g)
     {
-        locationList.get(controller.player.currLocale).paint(g);
+        if(controller.location==controller.gameMap.hallLocation)drawHall(g);
+        if(controller.location==controller.gameMap.regHallLocation)drawRegHall(g);
+        if(controller.location==controller.gameMap.personalsHallLocation)drawPersonalHall(g);
+        if(controller.location==controller.gameMap.cafeHallLocation)drawCafeHall(g);
+        if(controller.location==controller.gameMap.waitingHallLocation)drawWaitHall(g);
+        if(controller.location==controller.gameMap.streetHallLocation)drawStreet(g);
+        drawPlayer(g);
+        controller.location.update();
         controller.player.update();
         mainFrame.frame.repaint();
     }
 
+
+    public void drawHall(Graphics g)
+    {
+        g.drawImage(controller.location.mapTexture.getImage(),controller.location.x,controller.location.y,controller.location.width,controller.location.height,null);
+        if (controller.kidInHoll) drawKid(g);
+        if (controller.momInHoll)drawMom(g);
+        if (controller.dialogWithMomInHoll) controller.player.drawDialogWithMom(g);
+    }
+
+    public void drawRegHall(Graphics g)
+    {
+        g.drawImage(controller.location.mapTexture.getImage(),controller.location.x,controller.location.y,controller.location.width,controller.location.height,null);
+    }
+
+    public void drawPersonalHall(Graphics g)
+    {
+        g.drawImage(controller.location.mapTexture.getImage(),controller.location.x,controller.location.y,controller.location.width,controller.location.height,null);
+        if(controller.kidInPersonalHall) drawKid(g);
+    }
+
+    public void drawWaitHall(Graphics g)
+    {
+        g.drawImage(controller.location.mapTexture.getImage(),controller.location.x,controller.location.y,controller.location.width,controller.location.height,null);
+        if (controller.momInWaitingHall) drawMom(g);
+        if(controller.kidInWaitingHall) drawKid(g);
+
+    }
+    public void drawCafeHall(Graphics g)
+    {
+        g.drawImage(controller.location.mapTexture.getImage(),controller.location.x,controller.location.y,controller.location.width,controller.location.height,null);
+
+    }
+    public void drawStreet(Graphics g)
+    {
+        g.drawImage(controller.location.mapTexture.getImage(),controller.location.x,controller.location.y,controller.location.width,controller.location.height,null);
+
+    }
+
+    public void drawPlayer(Graphics g) {
+        if (controller.player.down && !controller.player.left && !controller.player.right)
+            g.drawImage(new ImageIcon(controller.player.spriteDown.get(controller.player.spriteCounter)).getImage(), controller.player.x, controller.player.y, controller.player.width, controller.player.height, null);
+        if (controller.player.up && !controller.player.left && !controller.player.right)
+            g.drawImage(new ImageIcon(controller.player.spriteUp.get(controller.player.spriteCounter)).getImage(), controller.player.x, controller.player.y, controller.player.width, controller.player.height, null);
+        if (controller.player.right)
+            g.drawImage(new ImageIcon(controller.player.spriteRight.get(controller.player.spriteCounter)).getImage(), controller.player.x, controller.player.y, 20, controller.player.height, null);
+        if (controller.player.left)
+            g.drawImage(new ImageIcon(controller.player.spriteLeft.get(controller.player.spriteCounter)).getImage(), controller.player.x, controller.player.y, 20, controller.player.height, null);
+        if (!controller.player.up && !controller.player.down && !controller.player.left && !controller.player.right)
+            g.drawImage(new ImageIcon(controller.player.spriteDown.get(0)).getImage(), controller.player.x, controller.player.y, controller.player.width, controller.player.height, null);
+
+    }
+
+    public void drawMom(Graphics g)
+    {
+        g.drawImage(controller.mom.imageMom.getImage(), controller.mom.x, controller.mom.y, controller.mom.width, controller.mom.height, null);
+    }
+    public void drawKid(Graphics g) {
+        controller.kid.rectKid = new Rectangle(controller.kid.x,controller.kid.y,controller.kid.width,controller.kid.height);
+        g.drawImage(controller.kid.imageMom.getImage(), controller.kid.x, controller.kid.y, controller.kid.width, controller.kid.height, null);
+    }
 }

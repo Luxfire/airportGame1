@@ -85,13 +85,21 @@ public class KeyListen extends KeyAdapter {
 
         if (e.getKeyCode() == KeyEvent.VK_E)
         {
-            if (controller.activeWithMom()&&controller.kidInPersonalHall) controller.dialogWithMomInHoll=true;
+            if (controller.activeWithMom()&&controller.momInHoll&&controller.kidInPersonalHall) controller.dialogWithMomInHoll=true;
 
-            if(controller.kidInPersonalHall&&controller.activeWithKid()&&player.currLocale==2)
+            if(controller.kidInPersonalHall&&controller.activeWithKid()&&controller.location==controller.gameMap.personalsHallLocation&&controller.momInWaitingHall)
             {
                 controller.kidInWaitingHall=true;
                 controller.kidInPersonalHall=false;
             }
+        }
+
+
+        if(e.getKeyCode()==KeyEvent.VK_R)
+        {
+            player.x=450;
+            player.y=450;
+            controller.location=controller.gameMap.waitingHallLocation;
         }
     }
 }

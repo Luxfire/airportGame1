@@ -1,6 +1,7 @@
-package view.locations;
+package model.locations;
 
 import controller.Controller;
+import controller.Door;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,27 +11,29 @@ import java.awt.*;
  * Created by user on 10.09.2017.
  */
 public class StreetHallLocation extends Location {
+    Controller controller;
   Rectangle stairs =new Rectangle(400,50,60,150);
     public StreetHallLocation(Controller controller) {
-
+       this.controller = controller;
         player = controller.player;
 
         moveZone = new Rectangle(180, 280, 540, 465);
-        doorDownOne = new Rectangle(445, 747, 10, 50);
+        doorDownOne = new Door(445, 747, 10, 50);
+
+        x=50;
+        y=50;
+        width=800;
+        height=800;
+        mapTexture = new ImageIcon("res/street.png");
     }
 
 
-    public void paint(Graphics g) {
+    public void update() {
 
-        g.drawImage(new ImageIcon("res/street.png").getImage(), 50, 50, 800, 800, null);
+        controller.player.getZones();
 
-
-        player.drawPlayer(g);
-
-        player.playerRect = new Rectangle(player.x, player.y+75, player.width, player.height-75);
-
-        if (player.playerRect.intersects(doorDownOne)) {
-            player.currLocale = 3;
+        if (player.playerRect.intersects(doorDownOne.door)) {
+            controller.location=controller.gameMap.map.get(doorDownOne);
             player.x = 445;
             player.y = 160;
         }

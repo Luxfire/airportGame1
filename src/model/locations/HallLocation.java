@@ -1,10 +1,10 @@
-package view.locations;
+package model.locations;
 
 import controller.Controller;
+import controller.Door;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 
 public class HallLocation extends Location {
@@ -12,37 +12,29 @@ public class HallLocation extends Location {
 
 
     public HallLocation(Controller controller) {
+
         this.controller=controller;
-        doorUpOne = new Rectangle(445, 130, 10, 3);
+        doorUpOne = new Door(445, 130, 10, 3);
         moveZone = new Rectangle(330, 135, 240, 590);
         player = controller.player;
+
+        x=200;
+        y=30;
+        width=500;
+        height=800;
+        mapTexture = new ImageIcon("res/hall.png");
     }
 
-    public void paint(Graphics g) {
+    public void update() {
 
-        g.drawImage(new ImageIcon("res/hall.png").getImage(), 200, 30, 500, 800, null);
+        player.getZones();
 
-
-        if (controller.kidInHoll) controller.kid.drawKid(g);
-        if(controller.mom.y+controller.mom.height<player.y+player.height) {
-            if (controller.momInHoll) controller.mom.drawMom(g);
-            player.drawPlayer(g);
-        }else
-        {
-            player.drawPlayer(g);
-            if (controller.momInHoll) controller.mom.drawMom(g);
-        }
-
-        if (controller.dialogWithMomInHoll&&controller.activeWithMom())
-        {
-            controller.player.drawDialogWithMom(g);
-        }else
+        if (!controller.activeWithMom())
         {
             controller.dialogWithMomInHoll=false;
             controller.player.dialogWithMomCounter=0;
         }
 
-        player.getZones();
 
         if (Math.sqrt(Math.pow((446 - player.playerRect.getX() + 5), 2) + Math.pow((437 - player.playerRect.getY() + 2), 2)) < 60) {
             player.setOldXY();
@@ -54,8 +46,8 @@ public class HallLocation extends Location {
             player.setOldXY();
         }
 
-        if (player.playerRect.intersects(doorUpOne)) {
-            player.currLocale = 1;
+        if (player.playerRect.intersects(doorUpOne.door)) {
+            controller.location=controller.gameMap.map.get(doorUpOne);
             player.x = 320;
             player.y = 515;
             if(controller.kidInHoll) controller.stageKidIsLost();

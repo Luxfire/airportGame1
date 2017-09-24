@@ -3,6 +3,7 @@ package controller;
 import model.Kid;
 import model.Mom;
 import model.Player;
+import model.locations.Location;
 
 /**
  * Created by user on 19.09.2017.
@@ -11,7 +12,8 @@ public class Controller {
     public Player player;
     public Mom mom;
     public Kid kid;
-
+    public Location location;
+    public GameMap gameMap;
     public boolean dialogWithMomInHoll = false;
 
     public boolean momInHoll=true;
@@ -28,7 +30,8 @@ public class Controller {
         player = new Player();
         mom = new Mom();
         kid = new Kid();
-
+        gameMap = new GameMap(this);
+        location=gameMap.hallLocation;
     }
 
     public void stageKidIsLost()
