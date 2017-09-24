@@ -1,6 +1,6 @@
 package model.locations;
 
-import controller.Door;
+import model.Door;
 import model.Player;
 
 import javax.swing.*;

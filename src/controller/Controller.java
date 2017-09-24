@@ -1,5 +1,6 @@
 package controller;
 
+import model.GameMap;
 import model.Kid;
 import model.Mom;
 import model.Player;

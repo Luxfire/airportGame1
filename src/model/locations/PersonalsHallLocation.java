@@ -3,7 +3,7 @@ package model.locations; /**
  */
 
 import controller.Controller;
-import controller.Door;
+import model.Door;
 
 import javax.swing.*;
 import java.awt.*;
