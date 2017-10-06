@@ -75,9 +75,7 @@ public class KeyListen extends KeyAdapter {
 
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            if (controller.player.dialogWithMomInHoll) {
-                if (player.dialogWithMomCounter < player.dialogWithMom.size() - 1) player.dialogWithMomCounter++;
-            }
+                if (player.dialogWithMomCounter < player.dialogWithMom.size() - 1&&controller.player.dialogWithMomInHoll) player.dialogWithMomCounter++;
         }
 
 
