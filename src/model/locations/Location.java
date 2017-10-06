@@ -12,12 +12,6 @@ import java.awt.*;
 public class Location {
     public Player player;
     public Rectangle moveZone;
-    public Door doorUpOne;
-    public Door doorUpTwo;
-    public Door doorDownOne;
-    public Door doorDownTwo;
-    public Door doorLeft;
-    public Door doorRight;
     public ImageIcon mapTexture;
     public int x;
     public int y;

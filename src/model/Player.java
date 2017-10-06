@@ -19,7 +19,6 @@ public class Player {
     public int yOld;
     public int moveSpeed = 0;
     public int animationSpeed = 0;
-    public int currLocale = 0;
     public boolean moved = false;
     public boolean up = false;
     public boolean down = false;

@@ -9,12 +9,11 @@ import java.awt.*;
 
 public class HallLocation extends Location {
   Controller controller;
-
-
+    public Rectangle doorUpOne;
     public HallLocation(Controller controller) {
 
         this.controller=controller;
-        doorUpOne = new Door(445, 130, 10, 3);
+        doorUpOne = new Rectangle(445, 130, 10, 3);
         moveZone = new Rectangle(330, 135, 240, 590);
         player = controller.player;
 
@@ -46,11 +45,10 @@ public class HallLocation extends Location {
             player.setOldXY();
         }
 
-        if (player.playerRect.intersects(doorUpOne.door)) {
-            controller.location=controller.gameMap.map.get(doorUpOne);
+        if (player.playerRect.intersects(doorUpOne)) {
+            controller.changeLocation(doorUpOne);
             player.x = 320;
             player.y = 515;
-            if(controller.kidInHoll) controller.stageKidIsLost();
         }
 
     }

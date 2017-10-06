@@ -1,15 +1,25 @@
 package model;
 
+import controller.Controller;
+import model.locations.Location;
+
 import java.awt.*;
 
 /**
  * Created by user on 24.09.2017.
  */
 public class Door {
-    public Rectangle door;
+    public Location locationLeft;
+    public Location locationRight;
 
-    public Door(int x, int y,int width,int height)
+    public Door(Location locationLeft, Location locationRight) {
+        this.locationLeft = locationLeft;
+        this.locationRight = locationRight;
+    }
+
+    public void changeLocation(Controller controller)
     {
-        door=new Rectangle(x,y,width,height);
+        if(locationLeft==controller.location) controller.location= locationRight;
+        else controller.location = locationLeft;
     }
 }

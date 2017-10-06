@@ -12,13 +12,14 @@ import java.awt.*;
  */
 public class StreetHallLocation extends Location {
     Controller controller;
+    public Rectangle doorDownOne;
   Rectangle stairs =new Rectangle(400,50,60,150);
     public StreetHallLocation(Controller controller) {
        this.controller = controller;
         player = controller.player;
 
         moveZone = new Rectangle(180, 280, 540, 465);
-        doorDownOne = new Door(445, 747, 10, 50);
+        doorDownOne = new Rectangle(445, 747, 10, 50);
 
         x=50;
         y=50;
@@ -32,8 +33,8 @@ public class StreetHallLocation extends Location {
 
         controller.player.getZones();
 
-        if (player.playerRect.intersects(doorDownOne.door)) {
-            controller.location=controller.gameMap.map.get(doorDownOne);
+        if (player.playerRect.intersects(doorDownOne)) {
+            controller.changeLocation(doorDownOne);
             player.x = 445;
             player.y = 160;
         }

@@ -97,9 +97,10 @@ public class KeyListen extends KeyAdapter {
 
         if(e.getKeyCode()==KeyEvent.VK_R)
         {
-            player.x=450;
+            if(controller.kidInHoll) controller.stageKidIsLost();
+          /*  player.x=450;
             player.y=450;
-            controller.location=controller.gameMap.waitingHallLocation;
+            controller.location=controller.gameMap.waitingHallLocation;*/
         }
     }
 }
