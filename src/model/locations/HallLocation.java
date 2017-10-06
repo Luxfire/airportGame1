@@ -1,8 +1,6 @@
 package model.locations;
 
 import controller.Controller;
-import model.Door;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -30,7 +28,7 @@ public class HallLocation extends Location {
 
         if (!controller.activeWithMom())
         {
-            controller.dialogWithMomInHoll=false;
+            controller.player.dialogWithMomInHoll=false;
             controller.player.dialogWithMomCounter=0;
         }
 
@@ -41,7 +39,7 @@ public class HallLocation extends Location {
         if (!player.playerRect.intersects(moveZone)) {
             player.setOldXY();
         }
-        if (player.playerRect.intersects(controller.mom.rectMom)&&controller.momInHoll) {
+        if (player.playerRect.intersects(controller.mom.rectMom)&&controller.mom.momInHoll) {
             player.setOldXY();
         }
 

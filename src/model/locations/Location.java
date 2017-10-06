@@ -1,6 +1,4 @@
 package model.locations;
-
-import model.Door;
 import model.Player;
 
 import javax.swing.*;

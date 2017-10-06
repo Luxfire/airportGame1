@@ -1,7 +1,7 @@
 package view;
 
-import model.Player;
 import controller.Controller;
+import model.Player;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -47,6 +47,11 @@ public class KeyListen extends KeyAdapter {
 
         }
 
+        if (e.getKeyCode() == KeyEvent.VK_E) {
+
+            controller.player.isActive = true;
+        }
+
     }
 
     @Override
@@ -70,37 +75,27 @@ public class KeyListen extends KeyAdapter {
 
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            if (controller.dialogWithMomInHoll)
-            {
-                if (player.dialogWithMomCounter <= player.dialogWithMom.size() - 1) player.dialogWithMomCounter++;
-                if (player.dialogWithMomCounter == player.dialogWithMom.size() - 1) {
-                    controller.dialogWithMomInHoll = false;
-                    controller.momInHoll = false;
-                    controller.momInWaitingHall = true;
-                    controller.mom.changeYForWait();
-                }
+            if (controller.player.dialogWithMomInHoll) {
+                if (player.dialogWithMomCounter < player.dialogWithMom.size() - 1) player.dialogWithMomCounter++;
             }
         }
 
 
-        if (e.getKeyCode() == KeyEvent.VK_E)
-        {
-            if (controller.activeWithMom()&&controller.momInHoll&&controller.kidInPersonalHall) controller.dialogWithMomInHoll=true;
+        if (e.getKeyCode() == KeyEvent.VK_E) {
+            controller.player.isActive = false;
+        }
 
-            if(controller.kidInPersonalHall&&controller.activeWithKid()&&controller.location==controller.gameMap.personalsHallLocation&&controller.momInWaitingHall)
-            {
-                controller.kidInWaitingHall=true;
-                controller.kidInPersonalHall=false;
+
+        if (e.getKeyCode() == KeyEvent.VK_R) {
+            if (!controller.taskManager.isStart) {
+                controller.startTask();
             }
         }
-
-
-        if(e.getKeyCode()==KeyEvent.VK_R)
-        {
-            if(controller.kidInHoll) controller.stageKidIsLost();
-          /*  player.x=450;
-            player.y=450;
-            controller.location=controller.gameMap.waitingHallLocation;*/
+        if (e.getKeyCode() == KeyEvent.VK_Q) {
+            controller.location = controller.gameMap.waitingHallLocation;
+            player.x = 400;
+            player.y = 400;
         }
+
     }
 }

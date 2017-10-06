@@ -7,7 +7,8 @@ import java.awt.*;
  * Created by student on 15.09.2017.
  */
 public class Mom {
-
+    public boolean momInHoll = true;
+    public boolean momInWaitingHall = false;
     public int x = 350;
     public int y = 150;
     public int width = 30;

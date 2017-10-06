@@ -1,8 +1,6 @@
 package model.locations;
 
 import controller.Controller;
-import model.Door;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -62,8 +60,7 @@ Controller controller;
         }
 
         if (!player.playerRect.intersects(moveZone)) {
-            player.x = player.xOld;
-            player.y = player.yOld;
+           player.setOldXY();
         }
 
     }

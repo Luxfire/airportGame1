@@ -3,8 +3,6 @@ package model.locations; /**
  */
 
 import controller.Controller;
-import model.Door;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -36,8 +34,7 @@ public class PersonalsHallLocation extends Location {
             player.y = 515;
         }
         if (!player.playerRect.intersects(moveZone)) {
-            player.x = player.xOld;
-            player.y = player.yOld;
+            player.setOldXY();
         }
     }
 }

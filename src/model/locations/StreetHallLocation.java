@@ -1,8 +1,6 @@
 package model.locations;
 
 import controller.Controller;
-import model.Door;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -39,8 +37,7 @@ public class StreetHallLocation extends Location {
             player.y = 160;
         }
         if (!player.playerRect.intersects(moveZone)) {
-            player.x = player.xOld;
-            player.y = player.yOld;
+            player.setOldXY();
         }
         if (player.playerRect.intersects(stairs)) player.setOldXY();
     }

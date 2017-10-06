@@ -2,9 +2,6 @@ package model;
 
 import controller.Controller;
 import model.locations.Location;
-
-import java.awt.*;
-
 /**
  * Created by user on 24.09.2017.
  */

@@ -30,6 +30,7 @@ public class DrawLocation extends JPanel
         drawPlayer(g);
         controller.location.update();
         controller.player.update();
+        controller.taskManager.update();
         mainFrame.frame.repaint();
     }
 
@@ -37,9 +38,9 @@ public class DrawLocation extends JPanel
     public void drawHall(Graphics g)
     {
         g.drawImage(controller.location.mapTexture.getImage(),controller.location.x,controller.location.y,controller.location.width,controller.location.height,null);
-        if (controller.kidInHoll) drawKid(g);
-        if (controller.momInHoll)drawMom(g);
-        if (controller.dialogWithMomInHoll) controller.player.drawDialogWithMom(g);
+        if (controller.kid.kidInHoll) drawKid(g);
+        if (controller.mom.momInHoll)drawMom(g);
+        if (controller.player.dialogWithMomInHoll) drawDialogWithMom(g);
     }
 
     public void drawRegHall(Graphics g)
@@ -50,14 +51,14 @@ public class DrawLocation extends JPanel
     public void drawPersonalHall(Graphics g)
     {
         g.drawImage(controller.location.mapTexture.getImage(),controller.location.x,controller.location.y,controller.location.width,controller.location.height,null);
-        if(controller.kidInPersonalHall) drawKid(g);
+        if(controller.kid.kidInPersonalHall) drawKid(g);
     }
 
     public void drawWaitHall(Graphics g)
     {
         g.drawImage(controller.location.mapTexture.getImage(),controller.location.x,controller.location.y,controller.location.width,controller.location.height,null);
-        if (controller.momInWaitingHall) drawMom(g);
-        if(controller.kidInWaitingHall) drawKid(g);
+        if (controller.mom.momInWaitingHall) drawMom(g);
+        if(controller.kid.kidInWaitingHall) drawKid(g);
 
     }
     public void drawCafeHall(Graphics g)
@@ -92,5 +93,10 @@ public class DrawLocation extends JPanel
     public void drawKid(Graphics g) {
         controller.kid.rectKid = new Rectangle(controller.kid.x,controller.kid.y,controller.kid.width,controller.kid.height);
         g.drawImage(controller.kid.imageMom.getImage(), controller.kid.x, controller.kid.y, controller.kid.width, controller.kid.height, null);
+    }
+
+    public void drawDialogWithMom(Graphics g)
+    {
+        g.drawImage(new ImageIcon(controller.player.dialogWithMom.get(controller.player.dialogWithMomCounter)).getImage(), 0, 800, 800,100 , null);
     }
 }

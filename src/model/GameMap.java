@@ -1,7 +1,6 @@
 package model;
 
 import controller.Controller;
-import model.Door;
 import model.locations.*;
 
 import java.awt.*;

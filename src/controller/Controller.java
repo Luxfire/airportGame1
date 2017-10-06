@@ -1,9 +1,6 @@
 package controller;
 
-import model.GameMap;
-import model.Kid;
-import model.Mom;
-import model.Player;
+import model.*;
 import model.locations.Location;
 
 import java.awt.*;
@@ -17,14 +14,7 @@ public class Controller {
     public Kid kid;
     public Location location;
     public GameMap gameMap;
-    public boolean dialogWithMomInHoll = false;
-
-    public boolean momInHoll = true;
-    public boolean momInWaitingHall = false;
-
-    public boolean kidInHoll = true;
-    public boolean kidInPersonalHall = false;
-    public boolean kidInWaitingHall = false;
+    public TaskManager taskManager;
 
 
     public Controller() {
@@ -33,14 +23,9 @@ public class Controller {
         kid = new Kid();
         gameMap = new GameMap(this);
         location = gameMap.hallLocation;
+        taskManager = new TaskManager(this);
     }
 
-    public void stageKidIsLost() {
-        kidInHoll = false;
-        kidInPersonalHall = true;
-        kid.x = 450;
-        kid.y = 450;
-    }
 
     public boolean activeWithMom() {
         return player.activeZone.intersects(mom.rectMom);
@@ -52,5 +37,9 @@ public class Controller {
 
     public void changeLocation(Rectangle door) {
         gameMap.map.get(door).changeLocation(this);
+    }
+
+    public void startTask() {
+        taskManager.isStart = true;
     }
 }

@@ -1,6 +1,4 @@
 package model;
-
-import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -19,18 +17,25 @@ public class Player {
     public int yOld;
     public int moveSpeed = 0;
     public int animationSpeed = 0;
+
+    public boolean isActive = false;
     public boolean moved = false;
+
     public boolean up = false;
     public boolean down = false;
     public boolean left = false;
     public boolean right = false;
+
     public List<String> spriteDown = new ArrayList();
     public List<String> spriteUp = new ArrayList();
     public List<String> spriteLeft = new ArrayList();
     public List<String> spriteRight = new ArrayList();
+    public int spriteCounter = 0;
+
     public List<String> dialogWithMom = new ArrayList();
     public int dialogWithMomCounter=0;
-    public int spriteCounter = 0;
+    public boolean dialogWithMomInHoll = false;
+
     public Rectangle playerRect;
     public Rectangle activeZone;
 
@@ -105,11 +110,6 @@ public class Player {
     {
         x=xOld;
         y=yOld;
-    }
-
-    public void drawDialogWithMom(Graphics g)
-    {
-        g.drawImage(new ImageIcon(dialogWithMom.get(dialogWithMomCounter)).getImage(), 0, 800, 800,100 , null);
     }
 
     public void getZones()
